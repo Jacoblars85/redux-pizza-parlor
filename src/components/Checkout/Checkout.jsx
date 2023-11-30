@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import Totalizer from '../Totalizer/Totalizer'
 
 function Checkout() {
     const customerInfo = useSelector((store) => store.customerInfo)
@@ -39,7 +40,7 @@ function Checkout() {
                 </tbody>
             </table>
 
-            <h4>Total: </h4>
+            <h2><Totalizer /> </h2>
             
             <button>CHECKOUT</button>
 

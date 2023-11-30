@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import Checkout from '../Checkout/Checkout';
+import Totalizer from '../Totalizer/Totalizer';
 
 function App() {
   const dispatch = useDispatch()
@@ -39,12 +40,15 @@ function App() {
       <Router>
 
         <header className='App-header'>
-          <h1 className='App-title'>JJJJ's Pizza</h1>
+          <span><h1 className='App-title'>JJJJ's Pizza <Totalizer /></h1></span>
+
         </header>
 
-        <p>Pizza is great.</p>
+
 
         <Route exact path="/">
+          <h2>Pizza is great. Due to supply issues, you only can have one of each :D</h2>
+
           <PizzaList />
 
           <Link to="/customInfo">
@@ -59,9 +63,9 @@ function App() {
         </Route>
 
         <Route exact path="/checkout">
-        <Checkout />
+          <Checkout />
         </Route>
-        
+
       </Router>
     </div>
   );
