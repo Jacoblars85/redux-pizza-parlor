@@ -1,13 +1,48 @@
-import PizzaItem from "../PizzaItem/PizzaItem";
 import { useSelector, useDispatch } from 'react-redux'
 
 function Checkout() {
-    const pizzaMenu = useSelector((store) => store.pizzaMenu)
+    const customerInfo = useSelector((store) => store.customerInfo)
+    const cart = useSelector((store) => store.cart)
 
 
     return (
         <div>
-           <p>hi</p>
+
+            <ul>
+                <ul>{customerInfo.nameInput}</ul>
+                <ul>{customerInfo.streetInput}</ul>
+                <ul>{customerInfo.cityInput}, MN {customerInfo.zipInput}</ul>
+            </ul>
+
+            <ul>
+                for {customerInfo.selectedOption}
+            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {cart.map((item) => {
+                        return (
+                            <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                            </tr>
+                        )
+                    })}
+
+                </tbody>
+            </table>
+
+            <h4>Total: </h4>
+            
+            <button>CHECKOUT</button>
+
         </div>
     )
 }
