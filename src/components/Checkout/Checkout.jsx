@@ -10,15 +10,15 @@ function Checkout() {
 
     const history = useHistory()
 
-    
+
     const clearCart = () => {
+
+
 
         dispatch({
             type: 'CLEAR_CART'
         })
-
         history.push("/")
-
     }
 
 
@@ -57,7 +57,7 @@ function Checkout() {
             </table>
 
             <h2><Totalizer /> </h2>
-            
+
             <button onClick={clearCart}>CHECKOUT</button>
 
         </div>
