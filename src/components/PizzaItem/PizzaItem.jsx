@@ -8,29 +8,29 @@ function PizzaItem({ pizza }) {
         dispatch({
             type: 'ADD_PIZZA_TO_CART',
             payload: pizza
-          })
+        })
     }
 
     const removeButton = () => {
         dispatch({
             type: 'REMOVE_PIZZA_FROM_CART',
             payload: pizza
-          })
+        })
     }
-    
-    
-    
+
+
+
     return (
         <ul>
             <li>{pizza.name}</li>
             <li>{pizza.description}</li>
             <li>{pizza.price}</li>
-            <li>{pizza.image_path}</li>
+            <li><img src={pizza.image_path} /></li>
             <button onClick={addButton}>Add</button>
             <button onClick={removeButton}>Remove</button>
         </ul>
     )
-    
-    }
-    
-    export default PizzaItem;
+
+}
+
+export default PizzaItem;

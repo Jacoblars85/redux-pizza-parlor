@@ -21,6 +21,13 @@ if (action.type === 'REMOVE_PIZZA_FROM_CART') {
   return state;
 }
 
+const customerInfo = (state = [], action) => {
+  if (action.type === 'CREATE_CUSTOMER_INFO') {
+    return action.payload
+}
+  return state;
+}
+
 
 
 
@@ -28,7 +35,7 @@ const store = createStore(
   combineReducers({
     pizzaMenu,
     cart,
-    
+    customerInfo
   }),
   applyMiddleware(logger),
 );

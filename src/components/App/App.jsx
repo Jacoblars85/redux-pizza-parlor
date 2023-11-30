@@ -3,6 +3,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 
 function App() {
   const dispatch = useDispatch()
@@ -28,19 +31,33 @@ function App() {
       .catch((error) => {
         console.log('error on GET', error);
       });
-    }
+  }
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+      <Router>
 
-      <PizzaList />
-  
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-  
+        <header className='App-header'>
+          <h1 className='App-title'>JJJJ's Pizza</h1>
+        </header>
+
+        <p>Pizza is great.</p>
+
+        <Route exact path="/">
+          <PizzaList />
+
+          <Link to="/customInfo">
+            <button>Next</button>
+          </Link>
+
+        </Route>
+
+
+        <Route exact path="/customInfo">
+          <CustomerInfo />
+        </Route>
+
+      </Router>
     </div>
   );
 }

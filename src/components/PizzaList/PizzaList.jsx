@@ -10,15 +10,12 @@ function PizzaList() {
             {
                 pizzaMenu.map((pizza) => {
                     return (
-                        <PizzaItem key={pizza.id} pizza={pizza}/>
+                        <PizzaItem key={pizza.id} pizza={pizza} />
                     )
-                } 
-
-
-            )}
+                }
+                )}
         </div>
     )
-
 }
 
 export default PizzaList;
