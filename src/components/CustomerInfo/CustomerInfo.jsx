@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PizzaItem from "../PizzaItem/PizzaItem";
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 
 
 function CustomerInfo() {
     const dispatch = useDispatch()
+
+    const history = useHistory()
 
     const [nameInput, setNameInput] = useState('');
     const [streetInput, setStreetInput] = useState('');
@@ -21,6 +24,8 @@ function CustomerInfo() {
             type: 'CREATE_CUSTOMER_INFO',
             payload: { nameInput, streetInput, cityInput, zipInput, selectedOption }
         })
+
+        history.push("/checkout")
 
     }
 
@@ -87,9 +92,13 @@ function CustomerInfo() {
                     />
                 </label>
 
+                <br />
+                
+                <button type='submit' >Next</button>
+                
             </form>
 
-            <button>Next</button>
+            
 
         </div>
     )

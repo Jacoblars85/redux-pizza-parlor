@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
+import Checkout from '../Checkout/Checkout';
 
 function App() {
   const dispatch = useDispatch()
@@ -57,6 +58,10 @@ function App() {
           <CustomerInfo />
         </Route>
 
+        <Route exact path="/checkout">
+        <Checkout />
+        </Route>
+        
       </Router>
     </div>
   );
