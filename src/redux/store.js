@@ -18,12 +18,18 @@ if (action.type === 'REMOVE_PIZZA_FROM_CART') {
     return pizza.id != action.payload.id
   })
 }
+if (action.type === 'CLEAR_CART') {
+  return []
+}
   return state;
 }
 
 const customerInfo = (state = [], action) => {
   if (action.type === 'CREATE_CUSTOMER_INFO') {
     return action.payload
+}
+if (action.type === 'CLEAR_CART') {
+  return []
 }
   return state;
 }

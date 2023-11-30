@@ -1,9 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux'
 import Totalizer from '../Totalizer/Totalizer'
+import { useHistory } from 'react-router-dom';
 
 function Checkout() {
     const customerInfo = useSelector((store) => store.customerInfo)
     const cart = useSelector((store) => store.cart)
+
+    const dispatch = useDispatch()
+
+    const history = useHistory()
+
+    
+    const clearCart = () => {
+
+        dispatch({
+            type: 'CLEAR_CART'
+        })
+
+        history.push("/")
+
+    }
 
 
     return (
@@ -42,7 +58,7 @@ function Checkout() {
 
             <h2><Totalizer /> </h2>
             
-            <button>CHECKOUT</button>
+            <button onClick={clearCart}>CHECKOUT</button>
 
         </div>
     )
