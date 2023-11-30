@@ -9,18 +9,26 @@ const pizzaMenu = (state = [], action) => {
   return state;
 }
 
-const addPizzaToCart = (state = [], action) => {
+const cart = (state = [], action) => {
   if (action.type === 'ADD_PIZZA_TO_CART') {
     return [...state, action.payload]
+}
+if (action.type === 'REMOVE_PIZZA_FROM_CART') {
+  return state.filter((pizza) => {
+    return pizza.id != action.payload.id
+  })
 }
   return state;
 }
 
 
+
+
 const store = createStore(
   combineReducers({
     pizzaMenu,
-    addPizzaToCart
+    cart,
+    
   }),
   applyMiddleware(logger),
 );

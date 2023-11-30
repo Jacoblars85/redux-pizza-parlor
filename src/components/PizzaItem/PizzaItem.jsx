@@ -10,6 +10,13 @@ function PizzaItem({ pizza }) {
             payload: pizza
           })
     }
+
+    const removeButton = () => {
+        dispatch({
+            type: 'REMOVE_PIZZA_FROM_CART',
+            payload: pizza
+          })
+    }
     
     
     
@@ -20,7 +27,7 @@ function PizzaItem({ pizza }) {
             <li>{pizza.price}</li>
             <li>{pizza.image_path}</li>
             <button onClick={addButton}>Add</button>
-            <button>Remove</button>
+            <button onClick={removeButton}>Remove</button>
         </ul>
     )
     
