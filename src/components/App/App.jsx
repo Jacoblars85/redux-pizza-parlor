@@ -8,6 +8,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import Checkout from '../Checkout/Checkout';
 import Totalizer from '../Totalizer/Totalizer';
+import AdminTable from '../AdminTable/AdminTable';
 
 function App() {
   const dispatch = useDispatch()
@@ -66,6 +67,10 @@ function App() {
           <Checkout />
         </Route>
 
+        <Route exact path="/admin">
+        <AdminTable />
+        </Route>
+        
       </Router>
     </div>
   );
